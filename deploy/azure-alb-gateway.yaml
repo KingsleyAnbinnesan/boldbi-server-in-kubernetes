@@ -88,6 +88,13 @@ spec:
   - matches:
     - path:
         type: PathPrefix
+        value: /mcp
+    backendRefs:
+    - name: bold-mcp-service
+      port: 6011
+  - matches:
+    - path:
+        type: PathPrefix
         value: /etlservice
     backendRefs:
     - name: bold-etl-service
