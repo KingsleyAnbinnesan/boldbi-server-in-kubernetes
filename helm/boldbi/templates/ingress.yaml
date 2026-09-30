@@ -214,6 +214,24 @@ spec:
               serviceName: bold-ai-service
               servicePort: 6010
               {{- end }}
+          {{- if not $.Values.subApplication.subPath }}
+          - path: /boldservices/aiservice/*
+            {{- if $ingressSupportsPathType }}
+          {{- else }}        
+          - path: /{{ $.Values.subApplication.subPath }}/mcp/*
+          {{- end }}
+            pathType: {{ $ingressPathType }}
+            {{- end }}
+            backend:
+              {{- if $ingressApiIsStable }}
+              service:
+                name: bold-mcp-service
+                port:
+                  number: 6011
+              {{- else }}
+              serviceName: bold-mcp-service
+              servicePort: 6011
+              {{- end }}
           {{- if $.Values.upgradeCenter.enabled }}
           {{- if not $.Values.subApplication.subPath }}
           - path: /boldservices{{ $.Values.upgradeCenter.ingressPath }}/*
@@ -392,6 +410,24 @@ spec:
               {{- else }}
               serviceName: bold-ai-service
               servicePort: 6010
+              {{- end }}
+          {{- if not $.Values.subApplication.subPath }}
+          - path: /boldservices/aiservice/*
+          {{- else }}
+          - path: /{{ $.Values.subApplication.subPath }}/aiservice/*
+          {{- end }}
+            {{- if $ingressSupportsPathType }}
+            pathType: {{ $ingressPathType }}
+            {{- end }}
+            backend:
+              {{- if $ingressApiIsStable }}
+              service:
+                name: bold-mcp-service
+                port:
+                  number: 6011
+              {{- else }}
+              serviceName: bold-mcp-service
+              servicePort: 6011
               {{- end }}
           {{- if $.Values.upgradeCenter.enabled }}
           {{- if not $.Values.subApplication.subPath }}
@@ -701,6 +737,22 @@ spec:
               serviceName: bold-ai-service
               servicePort: 6010
               {{- end }}
+
+          - path: /mcp/*
+            {{- if $ingressSupportsPathType }}
+            pathType: {{ $ingressPathType }}
+            {{- end }}
+            backend:
+              {{- if $ingressApiIsStable }}
+              service:
+                name: bold-mcp-service
+                port:
+                  number: 6011
+              {{- else }}
+              serviceName: bold-mcp-service
+              servicePort: 6011
+              {{- end }}
+
           {{- if $.Values.upgradeCenter.enabled }}
           - path: {{ $.Values.upgradeCenter.ingressPath }}/*
             {{- if $ingressSupportsPathType }}
@@ -844,6 +896,22 @@ spec:
               serviceName: bold-ai-service
               servicePort: 6010
               {{- end }}
+
+          - path: /mcp/*
+            {{- if $ingressSupportsPathType }}
+            pathType: {{ $ingressPathType }}
+            {{- end }}
+            backend:
+              {{- if $ingressApiIsStable }}
+              service:
+                name: bold-mcp-service
+                port:
+                  number: 6011
+              {{- else }}
+              serviceName: bold-mcp-service
+              servicePort: 6011
+              {{- end }}
+
           {{- if $.Values.upgradeCenter.enabled }}
           - path: /upgrade-center/*
             {{- if $ingressSupportsPathType }}

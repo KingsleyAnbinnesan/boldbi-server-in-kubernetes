@@ -103,6 +103,13 @@ spec:
                 name: bold-ai-service
                 port:
                   number: 6010
+          - path: {{ $subPath }}/mcp
+            pathType: Prefix
+            backend:
+              service:
+                name: bold-mcp-service
+                port:
+                  number: 6011
           {{- if .Values.upgradeCenter.enabled }}
           - path: {{ $subPath }}/upgrade-center
             pathType: Prefix
@@ -178,6 +185,13 @@ spec:
                 name: bold-ai-service
                 port:
                   number: 6010
+          - path: {{ $subPath }}/mcp
+            pathType: Prefix
+            backend:
+              service:
+                name: bold-mcp-service
+                port:
+                  number: 6011
           {{- if $.Values.upgradeCenter.enabled }}
           - path: {{ $subPath }}/upgrade-center
             pathType: Prefix

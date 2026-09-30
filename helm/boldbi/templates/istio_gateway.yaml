@@ -161,6 +161,17 @@ spec:
     retries:
       attempts: 3
       retryOn: gateway-error,connect-failure,refused-stream
+  - match:
+    - uri:
+        prefix: /mcp
+    route:
+    - destination:
+        port:
+          number: 6011
+        host: bold-mcp-service
+    retries:
+      attempts: 3
+      retryOn: gateway-error,connect-failure,refused-stream
   {{- if .Values.upgradeCenter.enabled }}
   # Upgrade Center
   - match:

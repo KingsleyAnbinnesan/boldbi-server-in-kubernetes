@@ -179,6 +179,12 @@ instanceConfig:
     maxReplicas: 20
     cpuResourceRequests: 250m
     memoryResourceRequests: 750Mi
+  - app: bold-mcp
+    replicaCount: 1
+    minReplicas: 1
+    maxReplicas: 20
+    cpuResourceRequests: 250m
+    memoryResourceRequests: 750Mi
   
 autoscaling:
   enabled: true
