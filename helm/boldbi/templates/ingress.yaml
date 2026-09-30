@@ -215,7 +215,7 @@ spec:
               servicePort: 6010
               {{- end }}
           {{- if not $.Values.subApplication.subPath }}
-          - path: /boldservices/aiservice/*
+          - path: /boldservices/mcp/*
             {{- if $ingressSupportsPathType }}
           {{- else }}        
           - path: /{{ $.Values.subApplication.subPath }}/mcp/*
@@ -412,9 +412,9 @@ spec:
               servicePort: 6010
               {{- end }}
           {{- if not $.Values.subApplication.subPath }}
-          - path: /boldservices/aiservice/*
+          - path: /boldservices/mcp/*
           {{- else }}
-          - path: /{{ $.Values.subApplication.subPath }}/aiservice/*
+          - path: /{{ $.Values.subApplication.subPath }}/mcp/*
           {{- end }}
             {{- if $ingressSupportsPathType }}
             pathType: {{ $ingressPathType }}
