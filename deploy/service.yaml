@@ -157,7 +157,7 @@ metadata:
   name: bold-mcp-service
   namespace: bold-services  
   labels:
-    app: bold-ai
+    app: bold-mcp
 spec:
   type: ClusterIP
   ports:
@@ -166,4 +166,4 @@ spec:
     targetPort: 80
     protocol: TCP
   selector:
-    app: bold-ai
+    app: bold-mcp
