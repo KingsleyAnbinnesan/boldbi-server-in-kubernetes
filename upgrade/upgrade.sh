@@ -26,12 +26,12 @@ else
 		namespace="default"
 	fi
 	
-	kubectl set image deployment/id-web-deployment id-web-container=us-docker.pkg.dev/boldbi-294612/boldbi/bold-identity:$version --namespace=$namespace --record 
-	kubectl set image deployment/id-api-deployment id-api-container=us-docker.pkg.dev/boldbi-294612/boldbi/bold-identity-api:$version --namespace=$namespace --record 
-	kubectl set image deployment/id-ums-deployment id-ums-container=us-docker.pkg.dev/boldbi-294612/boldbi/bold-ums:$version --namespace=$namespace --record 
-	kubectl set image deployment/bi-web-deployment bi-web-container=us-docker.pkg.dev/boldbi-294612/boldbi/boldbi-server:$version --namespace=$namespace --record 
-	kubectl set image deployment/bi-api-deployment bi-api-container=us-docker.pkg.dev/boldbi-294612/boldbi/boldbi-server-api:$version --namespace=$namespace --record 
-	kubectl set image deployment/bi-jobs-deployment bi-jobs-container=us-docker.pkg.dev/boldbi-294612/boldbi/boldbi-server-jobs:$version --namespace=$namespace --record 
-	kubectl set image deployment/bi-dataservice-deployment bi-dataservice-container=us-docker.pkg.dev/boldbi-294612/boldbi/boldbi-designer:$version --namespace=$namespace --record
-	kubectl set image deployment/bold-etl-deployment bold-etl-container=us-docker.pkg.dev/boldbi-294612/boldbi/bold-etl:$version --namespace=$namespace --record 
+	kubectl set image deployment/id-web-deployment id-web-container=syncfusion/bold-identity:$version --namespace=$namespace --record 
+	kubectl set image deployment/id-api-deployment id-api-container=syncfusion/bold-identity-api:$version --namespace=$namespace --record 
+	kubectl set image deployment/id-ums-deployment id-ums-container=syncfusion/bold-ums:$version --namespace=$namespace --record 
+	kubectl set image deployment/bi-web-deployment bi-web-container=syncfusion/boldbi-server:$version --namespace=$namespace --record 
+	kubectl set image deployment/bi-api-deployment bi-api-container=syncfusion/boldbi-server-api:$version --namespace=$namespace --record 
+	kubectl set image deployment/bi-jobs-deployment bi-jobs-container=syncfusion/boldbi-server-jobs:$version --namespace=$namespace --record 
+	kubectl set image deployment/bi-dataservice-deployment bi-dataservice-container=syncfusion/boldbi-designer:$version --namespace=$namespace --record
+	kubectl set image deployment/bold-etl-deployment bold-etl-container=syncfusion/bold-etl:$version --namespace=$namespace --record 
 fi

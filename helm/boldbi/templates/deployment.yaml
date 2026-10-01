@@ -91,7 +91,7 @@ spec:
         {{- else if eq $service.app "bold-etl" }}
         image: "{{ $.Values.image.repo }}/{{ $prefix }}bold-etl:{{ $.Values.image.tag }}"
         {{- else if eq $service.app "bold-mcp" }}
-        image: "{{ $.Values.image.repo }}/{{ $prefix }}bold-mcp:{{ $.Values.image.tag }}"
+        image: "{{ $.Values.image.repo }}/{{ $prefix }}boldbi-mcp-server:{{ $.Values.image.tag }}"
         {{- else if eq $service.app "bold-ai" }}
         image: "{{ $.Values.image.repo }}/{{ $prefix }}bold-ai:{{ $.Values.image.tag }}"
         {{- end }}

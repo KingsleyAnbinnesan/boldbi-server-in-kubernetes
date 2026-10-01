@@ -76,9 +76,9 @@ azureStorage:
   storageType: 1
 
 # image:
-#   repo: us-docker.pkg.dev/boldbi-294612/boldbi
+#   repo: syncfusion
 #   # Overrides the image tag whose default is the chart appVersion.
-#   tag: 16.3.5
+#   tag: 17.1.30
 #   pullPolicy: IfNotPresent
 # imagePullSecrets: []
 

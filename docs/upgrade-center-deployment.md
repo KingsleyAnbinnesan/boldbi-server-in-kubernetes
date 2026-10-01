@@ -15,7 +15,7 @@ Upgrade Center enables administrators to check for available releases, initiate 
 
 ## Deploy Upgrade Center using kubectl
 
-> **Version requirement:** Upgrade Center is available starting with Bold BI version 16.3.5. For a Bold BI 16.3.5 deployment, use the `16.3.5_upgrade_center` tag for all Bold BI application images before deploying Upgrade Center with kubectl.
+> **Version requirement:** Upgrade Center is available starting with Bold BI version 17.1.30. For a Bold BI 17.1.30 deployment, use the `17.1.30_upgrade_center` tag for all Bold BI application images before deploying Upgrade Center with kubectl.
 
 ### Step 1 — Download the Upgrade Center manifests
 
@@ -110,7 +110,7 @@ See [Access the Upgrade Center from Bold BI](#access-the-upgrade-center-from-bol
 
 ## Deploy Upgrade Center using Helm
 
-> **Version requirement:** Upgrade Center is available starting with Bold BI version 16.3.5. For a Bold BI 16.3.5 deployment, configure all Bold BI application images in your Helm values file to use the `16.3.5_upgrade_center` tag before enabling Upgrade Center.
+> **Version requirement:** Upgrade Center is available starting with Bold BI version 17.1.30. For a Bold BI 17.1.30 deployment, configure all Bold BI application images in your Helm values file to use the `17.1.30_upgrade_center` tag before enabling Upgrade Center.
 
 #### Get Repo Info
 
