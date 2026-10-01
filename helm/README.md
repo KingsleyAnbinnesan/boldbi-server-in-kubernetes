@@ -27,7 +27,7 @@ helm repo update
 helm search repo boldbi
 
 NAME            CHART VERSION   APP VERSION     DESCRIPTION
-boldbi/boldbi   16.3.5           16.3.5         Embed powerful analytics inside your apps and t...
+boldbi/boldbi   17.1.30           17.1.30         Embed powerful analytics inside your apps and t...
 ```
 
 _See [helm repo](https://helm.sh/docs/helm/helm_repo/) for command documentation._
@@ -797,9 +797,9 @@ _See [helm install](https://helm.sh/docs/helm/helm_install/) for command documen
 
   ```console
      image:
-       repo: us-docker.pkg.dev/boldbi-294612/boldbi
+       repo: syncfusion
        # Overrides the image tag whose default is the chart appVersion.
-       tag: 16.3.5
+       tag: 17.1.30
        pullPolicy: IfNotPresent
      imagePullSecrets: []
   ```
