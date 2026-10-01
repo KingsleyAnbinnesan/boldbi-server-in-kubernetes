@@ -125,6 +125,20 @@ spec:
             cookie:
               name: bold.k8s.pod.id
               maxAge: 600
+    # - match: Host(`example.com`) && PathPrefix(`/mcp`)
+    - match: PathPrefix(`/mcp`)
+      kind: Rule
+      middlewares:
+        - name: gzip-compress
+        - name: body-limit-200m
+      services:
+        - name: bold-mcp-service
+          port: 6011
+          serversTransport: long-timeouts-transport
+          sticky:
+            cookie:
+              name: bold.k8s.pod.id
+              maxAge: 600
     # - match: Host(`example.com`) && PathRegexp(`^/etlservice(/|$)(.*)`)
     - match: PathRegexp(`^/etlservice(/|$)(.*)`)
       kind: Rule

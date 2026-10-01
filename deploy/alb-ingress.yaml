@@ -78,13 +78,6 @@ rules:
             name: id-ums-service
             port:
               number: 6002
-      - path: "/*"
-        pathType: ImplementationSpecific
-        backend:
-          service:
-            name: id-web-service
-            port:
-              number: 6000
       - path: "/aiservice/*"
         pathType: ImplementationSpecific
         backend:
@@ -92,3 +85,17 @@ rules:
             name: bold-ai-service
             port:
               number: 6010
+      - path: "/mcp/*"
+        pathType: ImplementationSpecific
+        backend:
+          service:
+            name: bold-mcp-service
+            port:
+              number: 6011
+      - path: "/*"
+        pathType: ImplementationSpecific
+        backend:
+          service:
+            name: id-web-service
+            port:
+              number: 6000
