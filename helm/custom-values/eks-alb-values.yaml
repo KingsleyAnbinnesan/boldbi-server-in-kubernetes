@@ -92,6 +92,14 @@ imagePullSecrets: []
 loadBalancer:
   type: alb
   groupName: 'bold-services'
+  # Name of an existing ALB to reuse. Leave empty to create a new ALB on each install.
+  # Note: when an existing ALB name is set, keep 'groupName' unchanged so the ingress
+  # rules are attached to the same load balancer across reinstalls.
+  existingALBName: ''
+  # HTTP success codes range used by the ALB target group health check.
+  # The ALB default is 200 only, which fails when the health-check path returns
+  # 3xx redirects, so a range is set here.
+  healthCheckSuccessCodes: '200-399'
   affinityCookie:
     enable: true
     affinityCookieExpiration: 600 

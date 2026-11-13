@@ -197,6 +197,10 @@ loadBalancer:
     secretName: bold-tls
 
   # Used only when loadBalancer.type is 'alb'.
+  # Name of an existing ALB to reuse across reinstalls. If empty, a new ALB is created.
+  existingALBName: ''
+  # HTTP status code range for ALB target group health checks (default ALB value is only 200).
+  healthCheckSuccessCodes: '200-399'
   ssl:
     enable: false
     tls: arn
