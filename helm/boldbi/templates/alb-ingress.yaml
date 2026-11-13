@@ -11,6 +11,10 @@ metadata:
     alb.ingress.kubernetes.io/scheme: {{ .Values.loadBalancer.scheme | default "internet-facing" }}
     alb.ingress.kubernetes.io/target-type: {{ .Values.loadBalancer.targetType | default "ip" }}
     alb.ingress.kubernetes.io/healthcheck-path: /health-check
+    alb.ingress.kubernetes.io/success-codes: {{ .Values.loadBalancer.healthCheckSuccessCodes | default "200-399" }}
+    {{- if .Values.loadBalancer.existingALBName }}
+    alb.ingress.kubernetes.io/load-balancer-name: "{{ $.Values.loadBalancer.existingALBName }}"
+    {{- end }}
     {{- if .Values.loadBalancer.affinityCookie.enable }}
     alb.ingress.kubernetes.io/target-group-attributes: stickiness.enabled=true,stickiness.lb_cookie.duration_seconds=432000
     {{- end }}
