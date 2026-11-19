@@ -52,6 +52,11 @@ ociStorage:
 s3Storage:
   # Enable S3 storage backend (required: set to true to use S3)
   enabled: false
+  # true  = authenticate with an IAM role (EKS Pod Identity); access/secret keys are ignored
+  # false = authenticate with accessKey and secretKey below
+  iamRoleAuth: false
+  # Service account associated with the IAM role via Pod Identity (used only when iamRoleAuth is true)
+  serviceAccountName: boldbi-sa
   # AWS access key ID for authentication (e.g., your IAM user access key ID)
   accessKey: 
   # Name of the S3 bucket to use for storage

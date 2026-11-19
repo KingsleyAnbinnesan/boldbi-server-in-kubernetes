@@ -78,6 +78,9 @@ spec:
       {{- end }}
       {{- end }}
       {{- end }}
+      {{- if and (hasKey $.Values "s3Storage") ($.Values.s3Storage.enabled | default false) ($.Values.s3Storage.iamRoleAuth | default false) }}
+      serviceAccountName: {{ $.Values.s3Storage.serviceAccountName | default "boldbi-sa" }}
+      {{- end }}
       containers:
       - name: {{ $service.app }}-container
         {{- if eq $service.app "id-web" }}
@@ -164,16 +167,21 @@ spec:
           value: "{{ $.Values.ociStorage.storageType | default "" }}"
         {{- end }}
         {{- if and (hasKey $.Values "s3Storage") (hasKey $.Values.s3Storage "enabled") ( $.Values.s3Storage.enabled | default false ) }}
+        {{- if $.Values.s3Storage.iamRoleAuth | default false }}
+        - name: BOLD_SERVICES_AWS_AUTH_TYPE
+          value: "IAMRole"
+        {{- else }}
         - name: BOLD_SERVICES_AWS_ACCESS_KEY_ID
           value: "{{ $.Values.s3Storage.accessKey | default "" }}"
+        - name: BOLD_SERVICES_AWS_SECRET_ACCESS_KEY
+          value: "{{ $.Values.s3Storage.secretKey | default "" }}"
+        {{- end }}
         - name: BOLD_SERVICES_AMAZON_BUCKET_NAME
           value: "{{ $.Values.s3Storage.bucketName | default "" }}"
         - name: BOLD_SERVICES_AWS_REGION
           value: "{{ $.Values.s3Storage.region | default "" }}"
         - name: BOLD_SERVICES_AMAZON_ROOTFOLDER_NAME
           value: "{{ $.Values.s3Storage.rootFolderName | default "" }}"
-        - name: BOLD_SERVICES_AWS_SECRET_ACCESS_KEY
-          value: "{{ $.Values.s3Storage.secretKey | default "" }}"
         - name: BOLD_SERVICES_STORAGETYPE
           value: "{{ $.Values.s3Storage.storageType | default "" }}"
         {{- end }}
